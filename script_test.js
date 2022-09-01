@@ -10,7 +10,7 @@ describe("higherOrLower", function () {
     const result = code.higherOrLower(
       "higher", "lower", "equal"
     );
-    expect(result).to.be.an("string");
+    expect(result).to.be.a("string");
   });
 
   //test if value is great than result return higher
@@ -23,22 +23,19 @@ describe("higherOrLower", function () {
   it("returns lower if value is less than result", function () {
     const result = code.higherOrLower(5, 10);
     expect(result).to.equal("lower");
-  }
-  );
+  });
 
   //test if value is equal to result return equal
   it("returns equal if value is equal to result", function () {
     const result = code.higherOrLower(10, 10);
     expect(result).to.equal("equal");
-  }
-  );
+  });
 
   //test if value is not a number return error
   it("returns error if value is not a number", function () {
     const result = code.higherOrLower("10", 10);
     expect(result).to.equal("error");
-  }
-  );
+  });
 });
 
 //calls a function called "studentBody" that maps an array of students and returns an array of their names
@@ -79,8 +76,7 @@ describe("studentBody", function () {
       { name: "Steve", age: 18 },
     ]);
     expect(result).to.equal(24.666666666666668);
-  }
-  );
+  });
 
   //calculate the average grade of the students
   it("returns the average grade of the students", function () {
@@ -90,8 +86,7 @@ describe("studentBody", function () {
       { name: "Steve", grade: 18 },
     ]);
     expect(result).to.equal(24.666666666666668);
-  }
-  );
+  });
 
   //function returns total number of students, average age, and average grade of the students
   it("returns the total number of students, average age, and average grade of the students", function () {
@@ -101,8 +96,7 @@ describe("studentBody", function () {
       { name: "Steve", age: 18, grade: 100 },
     ]);
     expect(result).to.equal(3, 24.666666666666668, 100);
-  }
-  );
+  });
 });
 
 //given an object called "dvdCollection" with a list of movies, stars, year produced, and rating
@@ -110,8 +104,7 @@ describe("dvdCollection", function () {
   //dvds is a function
   it("is a function", function () {
     expect(code.dvds).to.be.a("function");
-  }
-  );
+  });
 
   //dvds returns an array
   it("returns an array", function () {
@@ -121,19 +114,28 @@ describe("dvdCollection", function () {
       { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
     ]);
     expect(result).to.be.an("array");
-  }
-  );
+  });
 
-  //expect value "titles" to be an array of strings with all of the movie titles
-  it("returns an array of strings with all of the movie titles", function () {
+  //expect value "titles" to be an array of strings
+  it("returns an array of strings", function () {
     const result = code.dvds([
       { title: "The Godfather", stars: "Marlon Brando", year: 1972, rating: 5 },
       { title: "The Shawshank Redemption", stars: "Tim Robbins", year: 1994, rating: 5 },
       { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
     ]);
-    expect(result[0]).to.be.an("string");
-  }
-  );
+    expect(result).to.be.an("array");
+    expect(result[0]).to.be.a("string");
+  });
+
+  //total number of movies in the collection
+  it("returns the total number of movies in the collection", function () {
+    const result = code.dvds([
+      { title: "The Godfather", stars: "Marlon Brando", year: 1972, rating: 5 },
+      { title: "The Shawshank Redemption", stars: "Tim Robbins", year: 1994, rating: 5 },
+      { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
+    ]);
+    expect(result).to.equal(3);
+  });
 
   //calculate the median year of the movies
   it("returns the median year of the movies", function () {
@@ -143,8 +145,7 @@ describe("dvdCollection", function () {
       { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
     ]);
     expect(result).to.equal(1994);
-  }
-  );
+  });
 
   //give the The Godfather a rating of 1 star
   it("returns the The Godfather a rating of 1 star", function () {
@@ -154,8 +155,7 @@ describe("dvdCollection", function () {
       { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
     ]);
     expect(result[0].rating).to.equal(1);
-  }
-  );
+  });
 });
 
 //a function called "carFactory" with a new constructor that creates a new object called "Car"
