@@ -31,6 +31,14 @@ studentBody([
  ]); // => { total: 3, age: 16, grade: 11 }
 ```
  
+### dvdCollection
+
+`dvdCollection(array)` is a function that takes an array as an argument. The array should include the title, stars, year, and rating year of each DVD. The function should return the total number of DVDs in the array, the median release year of all DVDs, and the average length of all DVDs.
+
+```js
+console.log()
+```
+
 ### carFactory
 
 `carFactory(car)` will take an object as an argument. The object should include a make, model, number of miles, and year. The function should use a constructor function to create a new car object with the same properties as the argument object. The function should then return the new car object.
