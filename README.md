@@ -49,7 +49,7 @@ dvdCollection([
     { title: "The Godfather", stars: 1, year: 1972, rating: 1990 },
     { title: "The Godfather: Part II", stars: 5, year: 1974, rating: 1990 },
     { title: "The Godfather: Part III", stars: 3, year: 1990, rating: 1990 }
-  ],
+  ],{
   total: 3,
   median: 1973
 }
