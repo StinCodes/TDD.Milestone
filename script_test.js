@@ -99,7 +99,7 @@ describe("studentBody", function () {
   });
 });
 
-//given an object called "dvdCollection" with a list of movies, stars, year produced, and rating
+//given three arrays of strings to combine and return a single alphabetical array
 describe("dvdCollection", function () {
   //dvds is a function
   it("is a function", function () {
@@ -108,110 +108,53 @@ describe("dvdCollection", function () {
 
   //dvds returns an array
   it("returns an array", function () {
-    const result = code.dvds([
-      { title: "The Godfather", stars: "Marlon Brando", year: 1972, rating: 5 },
-      { title: "The Shawshank Redemption", stars: "Tim Robbins", year: 1994, rating: 5 },
-      { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
-    ]);
+    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
     expect(result).to.be.an("array");
   });
 
-  //expect value "titles" to be an array of strings
+  //dvds returns an array of strings
   it("returns an array of strings", function () {
-    const result = code.dvds([
-      { title: "The Godfather", stars: "Marlon Brando", year: 1972, rating: 5 },
-      { title: "The Shawshank Redemption", stars: "Tim Robbins", year: 1994, rating: 5 },
-      { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
-    ]);
+    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
     expect(result).to.be.an("array");
     expect(result[0]).to.be.a("string");
   });
 
-  //total number of movies in the collection
-  it("returns the total number of movies in the collection", function () {
-    const result = code.dvds([
-      { title: "The Godfather", stars: "Marlon Brando", year: 1972, rating: 5 },
-      { title: "The Shawshank Redemption", stars: "Tim Robbins", year: 1994, rating: 5 },
-      { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
-    ]);
-    expect(result).to.equal(3);
-  });
-
-  //calculate the median year of the movies
-  it("returns the median year of the movies", function () {
-    const result = code.dvds([
-      { title: "The Godfather", stars: "Marlon Brando", year: 1972, rating: 5 },
-      { title: "The Shawshank Redemption", stars: "Tim Robbins", year: 1994, rating: 5 },
-      { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
-    ]);
-    expect(result).to.equal(1994);
-  });
-
-  //give the The Godfather a rating of 1 star
-  it("returns the The Godfather a rating of 1 star", function () {
-    const result = code.dvds([
-      { title: "The Godfather", stars: "Marlon Brando", year: 1972, rating: 5 },
-      { title: "The Shawshank Redemption", stars: "Tim Robbins", year: 1994, rating: 5 },
-      { title: "The Dark Knight", stars: "Christian Bale", year: 2008, rating: 5 },
-    ]);
-    expect(result[0].rating).to.equal(1);
+  //dvds returns an array of strings in alphabetical order
+  it("returns an array of strings in alphabetical order", function () {
+    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
+    expect(result).to.be.an("array");
+    expect(result[0]).to.be.a("string");
+    expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
   });
 });
 
-//a function called "carFactory" with a new constructor that creates a new object called "Car"
+//`carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
 describe("carFactory", function () {
   //carFactory is a function
   it("is a function", function () {
     expect(code.carFactory).to.be.a("function");
-  }
-  );
+  });
 
-  //carFactory returns an object
-  it("returns an object", function () {
-    const result = code.carFactory("Toyota", "Corolla", 2015, 20000, "black");
-    expect(result).to.be.an("object");
-  }
-  );
+  //carFactory returns a string
+  it("returns a string", function () {
+    const result = code.carFactory({
+      make: "Honda",
+      model: "Civic",
+      year: 2017,
+      doors: 4,
+    });
+    expect(result).to.be.a("string");
+  });
 
-  //carFactory returns an object with a make property
-  it("returns an object with a make property", function () {
-    const result = code.carFactory("Toyota", "Corolla", 2015, 20000, "black");
-    expect(result.make).to.be.a("string");
-  }
-  );
-
-  //carFactory returns an object with a model property
-  it("returns an object with a model property", function () {
-    const result = code.carFactory("Toyota", "Corolla", 2015, 20000, "black");
-    expect(result.model).to.be.a("string");
-  }
-  );
-
-  //carFactory returns an object with a year property
-  it("returns an object with a year property", function () {
-    const result = code.carFactory("Toyota", "Corolla", 2015, 20000, "black");
-    expect(result.year).to.be.a("number");
-  }
-  );
-
-  //carFactory returns an object with a miles property
-  it("returns an object with a miles property", function () {
-    const result = code.carFactory("Toyota", "Corolla", 2015, 20000, "black");
-    expect(result.miles).to.be.a("number");
-  }
-  );
-
-  //carFactory returns an object with a color property
-  it("returns an object with a color property", function () {
-    const result = code.carFactory("Toyota", "Corolla", 2015, 20000, "black");
-    expect(result.color).to.be.a("string");
-  }
-  );
-
-  //carFactory returns an object with a drive like authomatic or standard property
-  it("returns an object with a drive property", function () {
-    const result = code.carFactory("Toyota", "Corolla", 2015, 20000, "black");
-    expect(result.drive).to.be.a("function");
-  }
-  );
+  //carFactory returns a string that is either "motorcycle", "coupe", or "sedan"
+  it("returns a string that is either motorcycle, coupe, or sedan", function () {
+    const result = code.carFactory({
+      make: "Honda",
+      model: "Civic",
+      year: 2017,
+      doors: 4,
+    });
+    expect(result).to.be.a("string");
+    expect(result).to.equal("sedan");
+  });
 });

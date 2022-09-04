@@ -33,32 +33,20 @@ studentBody([
 
 ### dvdCollection
 
-`dvdCollection(array, {string, value})` is a function that takes an array as its first argument and an object with a string and number for its second argument. The array should include the title, stars, year, and rating year of each DVD. The function should return the total number of DVDs in the array, the median release year of all DVDs, and the average length of all DVDs.
+`dvdCollection(array, array, array)` is a function that takes three arrays as arguments. The first array `funnyMovies` should include the names of funny movies. The second array `dramaticMovies` should include the names of dramatic movies. The third array `actionMovies` should include the names of action movies. The function should return an array of all the movies in the three arrays sorted in alphabetical order.
 
-The second argument should say "The Godfather" with a value of 1 star - which should be easy to remember because it's obviously not true. =P
+=> `dvdCollection(["The Hangover", "Zoolander"], ["The Godfather", "The Notebook"], ["The Matrix", "The Avengers"]); // => ["The Avengers", "The Godfather", "The Hangover", "The Matrix", "The Notebook", "Zoolander"]`
 
-The function should then return the modified array along with the total number of movies in the array and the median release of all DVDs.
-
-```js
-dvdCollection([
-  { title: "The Godfather", stars: 5, year: 1972, rating: 5 },
-  { title: "The Godfather: Part II", stars: 5, year: 1974, rating: 4 },
-  { title: "The Godfather: Part III", stars: 3, year: 1990, rating: 3 }
-], { title: "The Godfather", stars: 1 }); // => {
-  array: [
-    { title: "The Godfather", stars: 1, year: 1972, rating: 1990 },
-    { title: "The Godfather: Part II", stars: 5, year: 1974, rating: 1990 },
-    { title: "The Godfather: Part III", stars: 3, year: 1990, rating: 1990 }
-  ],{
-  total: 3,
-  median: 1973
-}
-```
 
 ### carFactory
 
-`carFactory({string, string, value, value})` will take an object that contains car details as an argument. The object should include a make, model, number of miles, and year. The function should use a constructor function to create a new car object with the same properties as the argument object. The function should then return the new car object.
+`carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
 
 ```js
-carFactory({ make: "Toyota", model: "Camry", miles: 10000, year: 2010 }); // => { make: "Toyota", model: "Camry", miles: 10000, year: 2010 }
+carFactory({
+  make: "Toyota",
+  model: "Camry",
+  year: 2015,
+  doors: 4,
+}); // => "sedan"
 ```
