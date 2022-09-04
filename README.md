@@ -41,9 +41,9 @@ The function should then return the modified array along with the total number o
 
 ```js
 dvdCollection([
-  { title: "The Godfather", stars: 5, year: 1972, rating: 1990 },
-  { title: "The Godfather: Part II", stars: 5, year: 1974, rating: 1990 },
-  { title: "The Godfather: Part III", stars: 3, year: 1990, rating: 1990 }
+  { title: "The Godfather", stars: 5, year: 1972, rating: 5 },
+  { title: "The Godfather: Part II", stars: 5, year: 1974, rating: 4 },
+  { title: "The Godfather: Part III", stars: 3, year: 1990, rating: 3 }
 ], { title: "The Godfather", stars: 1 }); // => {
   array: [
     { title: "The Godfather", stars: 1, year: 1972, rating: 1990 },
