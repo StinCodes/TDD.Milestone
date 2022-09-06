@@ -10,4 +10,5 @@ module.exports = {
   // studentBody,
   // dvdCollection,
   // carFactory,
+  // coinMachine,
 };

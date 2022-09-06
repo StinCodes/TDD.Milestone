@@ -158,3 +158,29 @@ describe("carFactory", function () {
     expect(result).to.equal("sedan");
   });
 });
+
+//coinMachine() is a function that takes a number as an argument and returns an object with the number of quarters, dimes, nickels, and pennies that make up the number.
+describe("coinMachine", function () {
+  //coinMachine is a function
+  it("is a function", function () {
+    expect(code.coinMachine).to.be.a("function");
+  });
+
+  //coinMachine returns an object
+  it("returns an object", function () {
+    const result = code.coinMachine(1.23);
+    expect(result).to.be.an("object");
+  });
+
+  //coinMachine returns an object with the correct number of quarters, dimes, nickels, and pennies
+  it("returns an object with the correct number of quarters, dimes, nickels, and pennies", function () {
+    const result = code.coinMachine(1.23);
+    expect(result).to.be.an("object");
+    expect(result).to.deep.equal({
+      quarters: 4,
+      dimes: 2,
+      nickels: 0,
+      pennies: 3,
+    });
+  });
+});
