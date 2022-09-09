@@ -99,35 +99,6 @@ describe("studentBody", function () {
   });
 });
 
-//given three arrays of strings to combine and return a single alphabetical array
-describe("dvdCollection", function () {
-  //dvds is a function
-  it("is a function", function () {
-    expect(code.dvds).to.be.a("function");
-  });
-
-  //dvds returns an array
-  it("returns an array", function () {
-    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
-    expect(result).to.be.an("array");
-  });
-
-  //dvds returns an array of strings
-  it("returns an array of strings", function () {
-    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.a("string");
-  });
-
-  //dvds returns an array of strings in alphabetical order
-  it("returns an array of strings in alphabetical order", function () {
-    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.a("string");
-    expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
-  });
-});
-
 //`carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
 describe("carFactory", function () {
   //carFactory is a function
@@ -156,32 +127,6 @@ describe("carFactory", function () {
     });
     expect(result).to.be.a("string");
     expect(result).to.equal("sedan");
-  });
-});
-
-//coinMachine() is a function that takes a number as an argument and returns an object with the number of quarters, dimes, nickels, and pennies that make up the number.
-describe("coinMachine", function () {
-  //coinMachine is a function
-  it("is a function", function () {
-    expect(code.coinMachine).to.be.a("function");
-  });
-
-  //coinMachine returns an object
-  it("returns an object", function () {
-    const result = code.coinMachine(1.23);
-    expect(result).to.be.an("object");
-  });
-
-  //coinMachine returns an object with the correct number of quarters, dimes, nickels, and pennies
-  it("returns an object with the correct number of quarters, dimes, nickels, and pennies", function () {
-    const result = code.coinMachine(1.23);
-    expect(result).to.be.an("object");
-    expect(result).to.deep.equal({
-      quarters: 4,
-      dimes: 2,
-      nickels: 0,
-      pennies: 3,
-    });
   });
 });
 
@@ -227,5 +172,60 @@ describe("fruitBasket", function () {
     expect(result[0].weight).to.be.a("number");
     expect(result[0].eat()).to.be.a("string");
     expect(result[0].throwAway()).to.be.a("string");
+  });
+});
+
+//given three arrays of strings to combine and return a single alphabetical array
+describe("dvdCollection", function () {
+  //dvds is a function
+  it("is a function", function () {
+    expect(code.dvds).to.be.a("function");
+  });
+
+  //dvds returns an array
+  it("returns an array", function () {
+    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
+    expect(result).to.be.an("array");
+  });
+
+  //dvds returns an array of strings
+  it("returns an array of strings", function () {
+    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
+    expect(result).to.be.an("array");
+    expect(result[0]).to.be.a("string");
+  });
+
+  //dvds returns an array of strings in alphabetical order
+  it("returns an array of strings in alphabetical order", function () {
+    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
+    expect(result).to.be.an("array");
+    expect(result[0]).to.be.a("string");
+    expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
+  });
+});
+
+//coinMachine() is a function that takes a number as an argument and returns an object with the number of quarters, dimes, nickels, and pennies that make up the number.
+describe("coinMachine", function () {
+  //coinMachine is a function
+  it("is a function", function () {
+    expect(code.coinMachine).to.be.a("function");
+  });
+
+  //coinMachine returns an object
+  it("returns an object", function () {
+    const result = code.coinMachine(1.23);
+    expect(result).to.be.an("object");
+  });
+
+  //coinMachine returns an object with the correct number of quarters, dimes, nickels, and pennies
+  it("returns an object with the correct number of quarters, dimes, nickels, and pennies", function () {
+    const result = code.coinMachine(1.23);
+    expect(result).to.be.an("object");
+    expect(result).to.deep.equal({
+      quarters: 4,
+      dimes: 2,
+      nickels: 0,
+      pennies: 3,
+    });
   });
 });
