@@ -57,3 +57,11 @@ Our coin machine is broken! We need you to write a function that will take a num
 ```js
 coinMachine(0.99); // => { quarters: 3, dimes: 2, nickels: 0, pennies: 4 }
 ```
+
+### fruitBasket
+`fruitBasket(array)` is a function that takes an array of fruit names as strings as an argument. The function should return 
+a 4oz red pear that you ate, a 6oz green apple that you ate, and a 12oz yellow banana that you threw away. 
+  
+  ```js
+  fruitBasket(["pear", "apple", "banana"]); // => { pear: { color: "red", weight: 4, "You ate a pear." }, apple: { color: "green", weight: 6, "You ate an apple." }, banana: { color: "yellow", weight: 12, "You threw away a banana." } }
+  ```
