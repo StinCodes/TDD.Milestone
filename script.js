@@ -11,4 +11,5 @@ module.exports = {
   // dvdCollection,
   // carFactory,
   // coinMachine,
+  // fruitBasket,
 };
