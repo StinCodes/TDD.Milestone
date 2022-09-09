@@ -186,8 +186,8 @@ describe("coinMachine", function () {
 });
 
 //`fruitBasket(array)` is a function that takes an array of strings as an argument.
-// The function should take each string and create a class with the name of the fruit as well as a color and price.
-// The color and price should be randomly generated. 
+// The function should take each string and create a class with the name of the fruit as well as the weight.
+// The weight should be randomly generated. 
 // Each fruit should have a prototype like `eat()` that returns a string that says "You ate a [fruit]!" 
 // and `throwAway()` that returns a string that says "You threw away a [fruit]!" when called.
 describe("fruitBasket", function () {
@@ -198,51 +198,34 @@ describe("fruitBasket", function () {
 
   //fruitBasket returns an array
   it("returns an array", function () {
-    const result = code.fruitBasket(["apple", "banana", "pear"]);
+    const result = code.fruitBasket(["apple", "banana", "orange"]);
     expect(result).to.be.an("array");
   });
 
   //fruitBasket returns an array of objects
   it("returns an array of objects", function () {
-    const result = code.fruitBasket(["apple", "banana", "pear"]);
+    const result = code.fruitBasket(["apple", "banana", "orange"]);
     expect(result).to.be.an("array");
     expect(result[0]).to.be.an("object");
   });
 
-  //fruitBasket returns an array of objects with a name, color, and price
-  it("returns an array of objects with a name, color, and price", function () {
-    const result = code.fruitBasket(["apple", "banana", "pear"]);
+  //fruitBasket returns an array of objects with the correct properties
+  it("returns an array of objects with the correct properties", function () {
+    const result = code.fruitBasket(["apple", "banana", "orange"]);
     expect(result).to.be.an("array");
     expect(result[0]).to.be.an("object");
     expect(result[0].name).to.be.a("string");
-    expect(result[0].color).to.be.a("string");
-    expect(result[0].price).to.be.a("number");
+    expect(result[0].weight).to.be.a("number");
   });
 
-  //fruitBasket returns an array of objects with a name, color, and price that are randomly generated
-  it("returns an array of objects with a name, color, and price that are randomly generated", function () {
-    const result = code.fruitBasket(["apple", "banana", "pear"]);
+  //fruitBasket returns an array of objects with the correct properties and methods
+  it("returns an array of objects with the correct properties and methods", function () {
+    const result = code.fruitBasket(["apple", "banana", "orange"]);
     expect(result).to.be.an("array");
     expect(result[0]).to.be.an("object");
     expect(result[0].name).to.be.a("string");
-    expect(result[0].color).to.be.a("string");
-    expect(result[0].price).to.be.a("number");
-    expect(result[0].name).to.equal("apple");
-    expect(result[0].color).to.equal("green");
-    expect(result[0].price).to.equal(1.99);
-  });
-
-  //fruitBasket returns an array of objects with a name, color, and price that are randomly generated and have a prototype called eat() that returns a string that says "You ate a [fruit]!"
-  it("returns an array of objects with a name, color, and price that are randomly generated and have a prototype called eat() that returns a string that says You ate a [fruit]!", function () {
-    const result = code.fruitBasket(["apple", "banana", "pear"]);
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.an("object");
-    expect(result[0].name).to.be.a("string");
-    expect(result[0].color).to.be.a("string");
-    expect(result[0].price).to.be.a("number");
-    expect(result[0].name).to.equal("apple");
-    expect(result[0].color).to.equal("green");
-    expect(result[0].price).to.equal(1.99);
-    expect(result[0].eat()).to.equal("You ate a apple!");
+    expect(result[0].weight).to.be.a("number");
+    expect(result[0].eat()).to.be.a("string");
+    expect(result[0].throwAway()).to.be.a("string");
   });
 });

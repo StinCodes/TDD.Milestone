@@ -37,7 +37,6 @@ studentBody([
 
 => `dvdCollection(["The Hangover", "Zoolander"], ["The Godfather", "The Notebook"], ["The Matrix", "The Avengers"]); // => ["The Avengers", "The Godfather", "The Hangover", "The Matrix", "The Notebook", "Zoolander"]`
 
-
 ### carFactory
 
 `carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
@@ -52,6 +51,7 @@ carFactory({
 ```
 
 ### coinMachine
+
 Our coin machine is broken! We need you to write a function that will take a number as an argument and return the correct change in coins. The function should return an object with the number of quarters, dimes, nickels, and pennies needed to make the change.
 
 ```js
@@ -59,9 +59,10 @@ coinMachine(0.99); // => { quarters: 3, dimes: 2, nickels: 0, pennies: 4 }
 ```
 
 ### fruitBasket
-`fruitBasket(array)` is a function that takes an array of fruit names as strings as an argument. The function should return 
-a 4oz red pear that you ate, a 6oz green apple that you ate, and a 12oz yellow banana that you threw away. 
-  
-  ```js
-  fruitBasket(["pear", "apple", "banana"]); // => { pear: { color: "red", weight: 4, "You ate a pear." }, apple: { color: "green", weight: 6, "You ate an apple." }, banana: { color: "yellow", weight: 12, "You threw away a banana." } }
-  ```
+
+`fruitBasket(array)` is a function that takes an array of fruit names as strings as an argument. The function should create a class of the fruit, add a property of `weight`, and
+prototypes of `eat()` and `throwAway()`. The `eat()` prototype should return a string of "You ate a [fruit name]!" and the `throwAway()` prototype should return a string of "You threw away a [fruit name]!". The function should return an array of the fruits with their properties and prototypes.
+
+```js
+fruitBasket(["pear", "apple", "banana"]); // => { pear: { weight: 4, eat: [Function], throwAway: [Function] }, apple: { weight: 5, eat: [Function], throwAway: [Function] }, banana: { weight: 6, eat: [Function], throwAway: [Function] } }
+```
