@@ -33,7 +33,7 @@ studentBody([
 
 ### TDD 3: carFactory
 
-`carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
+`carFactory(object)` is a function that takes an object as an argument. This object includes the make, model, year, and number of doors of a vehicle. Return whether the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors).
 
 ```js
 carFactory({
