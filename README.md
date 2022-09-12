@@ -15,8 +15,8 @@
 
 `higherOrLower(value, value)` takes two numbers as opposing arguments. The function then uses conditional statements to determine if the first value is higher, lower, or equal to the second value.
 
-`higherOrLower(5, 6); // => {"lower"}`
-`higherOrLower(6, 5); // => {"higher"}`
+`higherOrLower(5, 6); // => {"lower"}`  
+`higherOrLower(6, 5); // => {"higher"}`  
 `higherOrLower(6, 6); // => {"equal"}`
 
 ### TDD 2: studentBody
@@ -46,11 +46,36 @@ carFactory({
 
 ### TDD 4: fruitBasket
 
-`fruitBasket(array)` is a function that takes an array of fruit names as strings as an argument. The function should create a class of the fruit, add a property of `weight`, and
-prototypes of `eat()` and `throwAway()`. The `eat()` prototype should return a string of "You ate a [fruit name]!" and the `throwAway()` prototype should return a string of "You threw away a [fruit name]!". The function should return an array of the fruits with their properties and prototypes.
+`fruitBasket(array)` is a function that takes an array of strings as an argument, where each string is the name of a fruit. The function outputs an array of objects with the following properties and methods:
+
+- `name`: the name of the fruit
+- `weight`: the weight of the fruit (random number)
+- `eat()`: returns the string `"You ate a [fruit name]!"`
+- `throwAway()`: returns the string `"You threw away a [fruit name]!"`
 
 ```js
-fruitBasket(["pear", "apple", "banana"]); // => { pear: { weight: 4, eat: [Function], throwAway: [Function] }, apple: { weight: 5, eat: [Function], throwAway: [Function] }, banana: { weight: 6, eat: [Function], throwAway: [Function] } }
+const fruits = fruitBasket(["pear", "apple", "banana"]); /* => [
+  {
+    name: 'pear',
+    weight: 1,
+    eat: [Function: eat],
+    throwAway: [Function: throwAway]
+  },
+  {
+    name: 'apple',
+    weight: 3,
+    eat: [Function: eat],
+    throwAway: [Function: throwAway]
+  },
+  {
+    name: 'banana',
+    weight: 2,
+    eat: [Function: eat],
+    throwAway: [Function: throwAway]
+  }
+]*/
+
+fruits[0].eat(); // => "You ate a pear!"
 ```
 
 ### TDD 5: dvdCollection
