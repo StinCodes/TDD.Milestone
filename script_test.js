@@ -7,9 +7,7 @@ describe("higherOrLower", function () {
   });
 
   it("returns a string", function () {
-    const result = code.higherOrLower(
-      "higher", "lower", "equal"
-    );
+    const result = code.higherOrLower("higher", "lower", "equal");
     expect(result).to.be.a("string");
   });
 
@@ -38,65 +36,31 @@ describe("higherOrLower", function () {
   });
 });
 
-//calls a function called "studentBody" that maps an array of students and returns an array of their names
-describe("studentBody", function () {
+describe.only("studentBody", function () {
+  const testStudents = [
+    { name: "John", age: 25, grade: 10 },
+    { name: "Mary", age: 31, grade: 11 },
+    { name: "Steve", age: 18, grade: 19 },
+  ];
+
   it("is a function", function () {
     expect(code.studentBody).to.be.a("function");
   });
 
-  //test if studentBody returns an array of objects
-  it("returns an array", function () {
-    const result = code.studentBody([
-      { name: "John", age: 25 },
-      { name: "Mary", age: 31 },
-      { name: "Steve", age: 18 },
-    ]);
-    expect(result).to.be.an("array");
+  it("returns an object", function () {
+    const result = code.studentBody(testStudents);
+    expect(result).to.be.an("object");
   });
 
-  //ensure every student has a name, age, and grade
-  it("returns an array of objects", function () {
-    const result = code.studentBody([
-      { name: "John", age: 25, grade: 100 },
-      { name: "Mary", age: 31, grade: 100 },
-      { name: "Steve", age: 18, grade: 100 },
-    ]);
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.an("object");
-    expect(result[0].name).to.be.a("string");
-    expect(result[0].age).to.be.a("number");
-    expect(result[0].grade).to.be.a("number");
+  it("returns an object containing the correct values", function () {
+    const result = code.studentBody(testStudents);
+    expect(result).to.deep.equal({
+      total: 3,
+      age: (25 + 31 + 18) / 3,
+      grade: (10 + 11 + 19) / 3,
+    });
   });
 
-  //calculate the average age of the students
-  it("returns the average age of the students", function () {
-    const result = code.studentBody([
-      { name: "John", age: 25 },
-      { name: "Mary", age: 31 },
-      { name: "Steve", age: 18 },
-    ]);
-    expect(result).to.equal(24.666666666666668);
-  });
-
-  //calculate the average grade of the students
-  it("returns the average grade of the students", function () {
-    const result = code.studentBody([
-      { name: "John", grade: 25 },
-      { name: "Mary", grade: 31 },
-      { name: "Steve", grade: 18 },
-    ]);
-    expect(result).to.equal(24.666666666666668);
-  });
-
-  //function returns total number of students, average age, and average grade of the students
-  it("returns the total number of students, average age, and average grade of the students", function () {
-    const result = code.studentBody([
-      { name: "John", age: 25, grade: 100 },
-      { name: "Mary", age: 31, grade: 100 },
-      { name: "Steve", age: 18, grade: 100 },
-    ]);
-    expect(result).to.equal(3, 24.666666666666668, 100);
-  });
 });
 
 //`carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
@@ -132,8 +96,8 @@ describe("carFactory", function () {
 
 //`fruitBasket(array)` is a function that takes an array of strings as an argument.
 // The function should take each string and create a class with the name of the fruit as well as the weight.
-// The weight should be randomly generated. 
-// Each fruit should have a prototype like `eat()` that returns a string that says "You ate a [fruit]!" 
+// The weight should be randomly generated.
+// Each fruit should have a prototype like `eat()` that returns a string that says "You ate a [fruit]!"
 // and `throwAway()` that returns a string that says "You threw away a [fruit]!" when called.
 describe("fruitBasket", function () {
   //fruitBasket is a function

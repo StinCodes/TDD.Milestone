@@ -21,7 +21,7 @@
 
 ### TDD 2: studentBody
 
-`studentBody(array)` is a function that takes an array as an argument. The array should include a name, age, and grade of each student. The function should return the total number of students in the array, the average age of all students, and the average grade of all students.
+`studentBody(array)` is a function that takes an array of objects as an argument. Each object contains the name, age, and grade of a student. The function should return an object that contains the total number of students in the array, the average age of all students, and the average grade of all students.
 
 ```js
 studentBody([
@@ -83,7 +83,11 @@ fruits[0].eat(); // => "You ate a pear!"
 `dvdCollection(array, array, array)` is a function that takes three arrays as arguments. The first array `funnyMovies` should include the names of funny movies. The second array `dramaticMovies` should include the names of dramatic movies. The third array `actionMovies` should include the names of action movies. The function should return an array of all the movies in the three arrays sorted in alphabetical order.
 
 ```js
-dvdCollection(["The Hangover", "Zoolander"], ["The Godfather", "The Notebook"], ["The Matrix", "The Avengers"]);  
+dvdCollection(
+  ["The Hangover", "Zoolander"],
+  ["The Godfather", "The Notebook"],
+  ["The Matrix", "The Avengers"]
+);
 // => ["The Avengers", "The Godfather", "The Hangover", "The Matrix", "The Notebook", "Zoolander"]
 ```
 
