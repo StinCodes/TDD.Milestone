@@ -36,7 +36,7 @@ describe("higherOrLower", function () {
   });
 });
 
-describe.only("studentBody", function () {
+describe("studentBody", function () {
   const testStudents = [
     { name: "John", age: 25, grade: 10 },
     { name: "Mary", age: 31, grade: 11 },
@@ -60,7 +60,6 @@ describe.only("studentBody", function () {
       grade: (10 + 11 + 19) / 3,
     });
   });
-
 });
 
 //`carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
@@ -143,25 +142,37 @@ describe("fruitBasket", function () {
 describe("dvdCollection", function () {
   //dvds is a function
   it("is a function", function () {
-    expect(code.dvds).to.be.a("function");
+    expect(code.dvdCollection).to.be.a("function");
   });
 
   //dvds returns an array
   it("returns an array", function () {
-    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
+    const result = code.dvdCollection(
+      ["a", "b", "c"],
+      ["d", "e", "f"],
+      ["g", "h", "i"]
+    );
     expect(result).to.be.an("array");
   });
 
   //dvds returns an array of strings
   it("returns an array of strings", function () {
-    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
+    const result = code.dvdCollection(
+      ["a", "b", "c"],
+      ["d", "e", "f"],
+      ["g", "h", "i"]
+    );
     expect(result).to.be.an("array");
     expect(result[0]).to.be.a("string");
   });
 
   //dvds returns an array of strings in alphabetical order
   it("returns an array of strings in alphabetical order", function () {
-    const result = code.dvds(["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]);
+    const result = code.dvdCollection(
+      ["a", "b", "c"],
+      ["d", "e", "f"],
+      ["g", "h", "i"]
+    );
     expect(result).to.be.an("array");
     expect(result[0]).to.be.a("string");
     expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
