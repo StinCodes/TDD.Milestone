@@ -188,13 +188,13 @@ describe("coinMachine", function () {
 
   //coinMachine returns an object
   it("returns an object", function () {
-    const result = code.coinMachine(1.23);
+    const result = code.coinMachine(123);
     expect(result).to.be.an("object");
   });
 
   //coinMachine returns an object with the correct number of quarters, dimes, nickels, and pennies
   it("returns an object with the correct number of quarters, dimes, nickels, and pennies", function () {
-    const result = code.coinMachine(1.23);
+    const result = code.coinMachine(123);
     expect(result).to.be.an("object");
     expect(result).to.deep.equal({
       quarters: 4,

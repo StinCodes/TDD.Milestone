@@ -93,8 +93,8 @@ dvdCollection(
 
 ### OPTIONAL: coinMachine
 
-Our coin machine is broken! We need you to write a function that will take a number as an argument and return the correct change in coins. The function should return an object with the number of quarters, dimes, nickels, and pennies needed to make the change.
+Our coin machine is broken! We need you to write a function that will take a number in cents as an argument and return the correct change in coins. The function should return an object with the number of quarters, dimes, nickels, and pennies needed to make the change.
 
 ```js
-coinMachine(0.99); // => { quarters: 3, dimes: 2, nickels: 0, pennies: 4 }
+coinMachine(99); // => { quarters: 3, dimes: 2, nickels: 0, pennies: 4 }
 ```
