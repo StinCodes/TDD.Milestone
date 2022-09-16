@@ -15,9 +15,11 @@
 
 `higherOrLower(value, value)` takes two numbers as opposing arguments. The function then uses conditional statements to determine if the first value is higher, lower, or equal to the second value.
 
-`higherOrLower(5, 6); // => {"lower"}`  
-`higherOrLower(6, 5); // => {"higher"}`  
-`higherOrLower(6, 6); // => {"equal"}`
+If any of the inputs is not a number, then `"error"` should be returned.
+
+`higherOrLower(5, 6); // => "lower"`  
+`higherOrLower(6, 5); // => "higher"`  
+`higherOrLower(6, 6); // => "equal"`
 
 ### TDD 2: studentBody
 

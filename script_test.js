@@ -169,9 +169,9 @@ describe("dvdCollection", function () {
   //dvds returns an array of strings in alphabetical order
   it("returns an array of strings in alphabetical order", function () {
     const result = code.dvdCollection(
-      ["a", "b", "c"],
-      ["d", "e", "f"],
-      ["g", "h", "i"]
+      ["c", "b", "a"],
+      ["e", "d", "f"],
+      ["h", "i", "g"]
     );
     expect(result).to.be.an("array");
     expect(result[0]).to.be.a("string");
