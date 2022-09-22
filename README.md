@@ -24,7 +24,21 @@ higherOrLower(6, 6); // => "equal"
 higherOrLower("6", 6); // => "error"
 ```
 
-### TDD 2: studentBody
+### TDD 2: dvdCollection
+
+`dvdCollection(movies1: string[], movies2: string[], movies3: string[])` is a function that takes three arrays of movie names as arguments and returns a single array of all the strings sorted in ascending alphabetical order.
+
+
+```js
+dvdCollection(
+  ["The Hangover", "Zoolander"],
+  ["The Godfather", "The Notebook"],
+  ["The Matrix", "The Avengers"]
+);
+// => ["The Avengers", "The Godfather", "The Hangover", "The Matrix", "The Notebook", "Zoolander"]
+```
+
+### TDD 3: studentBody
 
 `studentBody(array)` is a function that takes an array of objects as an argument. Each object contains the name, age, and grade of a student. The function should return an object that contains the total number of students in the array, the average age of all students, and the average grade of all students.
 
@@ -34,19 +48,6 @@ studentBody([
   { name: "Jane", age: 16, grade: 11 },
   { name: "Jack", age: 17, grade: 12 },
 ]); // => { total: 3, age: 16, grade: 11 }
-```
-
-### TDD 3: carFactory
-
-`carFactory(object)` is a function that takes an object as an argument. This object includes the make, model, year, and number of doors of a vehicle. Return whether the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors).
-
-```js
-carFactory({
-  make: "Toyota",
-  model: "Camry",
-  year: 2015,
-  doors: 4,
-}); // => "sedan"
 ```
 
 ### TDD 4: fruitBasket
@@ -81,19 +82,6 @@ const fruits = fruitBasket(["pear", "apple", "banana"]); /* => [
 ]*/
 
 fruits[0].eat(); // => "You ate a pear!"
-```
-
-### TDD 5: dvdCollection
-
-`dvdCollection(array, array, array)` is a function that takes three arrays as arguments. The first array `funnyMovies` should include the names of funny movies. The second array `dramaticMovies` should include the names of dramatic movies. The third array `actionMovies` should include the names of action movies. The function should return an array of all the movies in the three arrays sorted in alphabetical order.
-
-```js
-dvdCollection(
-  ["The Hangover", "Zoolander"],
-  ["The Godfather", "The Notebook"],
-  ["The Matrix", "The Avengers"]
-);
-// => ["The Avengers", "The Godfather", "The Hangover", "The Matrix", "The Notebook", "Zoolander"]
 ```
 
 ### OPTIONAL: coinMachine
