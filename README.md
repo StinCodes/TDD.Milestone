@@ -54,7 +54,7 @@ studentBody([
 `fruitBasket(fruitNames: string[])` is a function that takes an array of strings as an argument, where each string is the name of a fruit. The function outputs an array of objects with the following properties and methods:
 
 - `name: string`: the name of the fruit
-- `weight: number`: the weight of the fruit (random number)
+- `weight: number`: the weight of the fruit (random number between 1 and 10)
 - `eat: () -> string`: returns `"You ate a [fruit name]!"` when called
 - `throwAway: () -> string`: returns `"You threw away a [fruit name]!"` when called
 

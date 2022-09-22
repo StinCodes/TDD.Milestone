@@ -80,41 +80,37 @@ describe("studentBody", function () {
 describe("fruitBasket", function () {
   const testCase = ["apple", "banana", "orange", "kiwi"];
 
-  it("is a function that returns an array", function () {
+  it("is a function that returns an array of objects", function () {
     expect(code.fruitBasket).to.be.a("function");
-  });
-
-  //fruitBasket returns an array
-  it("returns an array", function () {
-    const result = code.fruitBasket(["apple", "banana", "orange"]);
+    const result = code.fruitBasket(testCase);
     expect(result).to.be.an("array");
+
+    for (const fruit of result) {
+      expect(fruit).to.be.an("object");
+    }
   });
 
-  //fruitBasket returns an array of objects
-  it("returns an array of objects", function () {
-    const result = code.fruitBasket(["apple", "banana", "orange"]);
+  it("returns an array of objects with the correct types of properties and methods", function () {
+    const result = code.fruitBasket(testCase);
     expect(result).to.be.an("array");
-    expect(result[0]).to.be.an("object");
+    for (const fruit of result) {
+      expect(fruit.name).to.be.a("string");
+      expect(fruit.weight).to.be.a("number");
+      expect(fruit.eat).to.be.a("function");
+      expect(fruit.eat()).to.be.a("string");
+      expect(fruit.throwAway).to.be.a("function");
+      expect(fruit.throwAway()).to.be.a("string");
+    }
   });
 
-  //fruitBasket returns an array of objects with the correct properties
-  it("returns an array of objects with the correct properties", function () {
-    const result = code.fruitBasket(["apple", "banana", "orange"]);
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.an("object");
-    expect(result[0].name).to.be.a("string");
-    expect(result[0].weight).to.be.a("number");
-  });
-
-  //fruitBasket returns an array of objects with the correct properties and methods
   it("returns an array of objects with the correct properties and methods", function () {
-    const result = code.fruitBasket(["apple", "banana", "orange"]);
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.an("object");
-    expect(result[0].name).to.be.a("string");
-    expect(result[0].weight).to.be.a("number");
-    expect(result[0].eat()).to.be.a("string");
-    expect(result[0].throwAway()).to.be.a("string");
+    const result = code.fruitBasket(testCase);
+    result.forEach((fruit, i) => {
+      expect(fruit.name).to.equal(testCase[i]);
+      expect(fruit.weight).to.be.within(1, 10);
+      expect(fruit.eat()).to.equal(`You ate a ${fruit.name}!`);
+      expect(fruit.throwaway()).to.equal(`You threw away a ${fruit.name}!`);
+    });
   });
 });
 
