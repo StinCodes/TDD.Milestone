@@ -13,13 +13,16 @@
 
 ### TDD 1: higherOrLower
 
-`higherOrLower(value, value)` takes two numbers as opposing arguments. The function then uses conditional statements to determine if the first value is higher, lower, or equal to the second value.
+`higherOrLower(value1: number, value2: number)` takes two parameters, `value1` and `value2`, and returns a string indicating whether `value1` is `"higher"`, `"lower"`, or `"equal"` to `value2`.
 
 If any of the inputs is not a number, then `"error"` should be returned.
 
-`higherOrLower(5, 6); // => "lower"`  
-`higherOrLower(6, 5); // => "higher"`  
-`higherOrLower(6, 6); // => "equal"`
+```js
+higherOrLower(5, 6); // => "lower"
+higherOrLower(6, 5); // => "higher"
+higherOrLower(6, 6); // => "equal"
+higherOrLower("6", 6); // => "error"
+```
 
 ### TDD 2: studentBody
 
