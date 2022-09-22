@@ -7,9 +7,9 @@
  */
 module.exports = {
   // higherOrLower,
-  // studentBody,
   // dvdCollection,
-  // carFactory,
-  // coinMachine,
+  // studentBody,
   // fruitBasket,
+  // twice,
+  // coinMachine,
 };
