@@ -28,7 +28,6 @@ higherOrLower("6", 6); // => "error"
 
 `dvdCollection(movies1: string[], movies2: string[], movies3: string[])` is a function that takes three arrays of movie names as arguments and returns a single array of all the strings sorted in ascending alphabetical order.
 
-
 ```js
 dvdCollection(
   ["The Hangover", "Zoolander"],
@@ -40,7 +39,7 @@ dvdCollection(
 
 ### TDD 3: studentBody
 
-`studentBody(array)` is a function that takes an array of objects as an argument. Each object contains the name, age, and grade of a student. The function should return an object that contains the total number of students in the array, the average age of all students, and the average grade of all students.
+`studentBody(students: Object[])` is a function that takes an array of objects as an argument. Each object contains the name, age, and grade of a student. The function should return an object that contains the total number of students in the array, the average age of all students, and the average grade of all students.
 
 ```js
 studentBody([
@@ -52,12 +51,12 @@ studentBody([
 
 ### TDD 4: fruitBasket
 
-`fruitBasket(array)` is a function that takes an array of strings as an argument, where each string is the name of a fruit. The function outputs an array of objects with the following properties and methods:
+`fruitBasket(fruitNames: string[])` is a function that takes an array of strings as an argument, where each string is the name of a fruit. The function outputs an array of objects with the following properties and methods:
 
-- `name`: the name of the fruit
-- `weight`: the weight of the fruit (random number)
-- `eat()`: returns the string `"You ate a [fruit name]!"`
-- `throwAway()`: returns the string `"You threw away a [fruit name]!"`
+- `name: string`: the name of the fruit
+- `weight: number`: the weight of the fruit (random number)
+- `eat: () -> string`: returns `"You ate a [fruit name]!"` when called
+- `throwAway: () -> string`: returns `"You threw away a [fruit name]!"` when called
 
 ```js
 const fruits = fruitBasket(["pear", "apple", "banana"]); /* => [
@@ -82,6 +81,18 @@ const fruits = fruitBasket(["pear", "apple", "banana"]); /* => [
 ]*/
 
 fruits[0].eat(); // => "You ate a pear!"
+```
+
+### TDD 5: twice
+
+`twice(fn: () => number)` returns a function that can only be invoked two times. Afterward, it will always return 0.
+
+```js
+const randomTwice = twice(() => Math.random());
+randomTwice(); // => 0.583144377404559
+randomTwice(); // => 0.423114593732790
+randomTwice(); // => 0
+randomTwice(); // => 0
 ```
 
 ### OPTIONAL: coinMachine
