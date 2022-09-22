@@ -56,9 +56,9 @@ describe("dvdCollection", function () {
 
 describe("studentBody", function () {
   const testStudents = [
-    { name: "John", age: 25, grade: 10 },
-    { name: "Mary", age: 31, grade: 11 },
-    { name: "Steve", age: 18, grade: 19 },
+    { name: "Stella", age: 25, grade: 11 },
+    { name: "Mohammed", age: 31, grade: 13 },
+    { name: "Brian", age: 19, grade: 18 },
   ];
 
   it("is a function", function () {
@@ -74,48 +74,12 @@ describe("studentBody", function () {
     const result = code.studentBody(testStudents);
     expect(result).to.deep.equal({
       total: 3,
-      age: (25 + 31 + 18) / 3,
-      grade: (10 + 11 + 19) / 3,
+      age: (25 + 31 + 19) / 3,
+      grade: (11 + 13 + 18) / 3,
     });
   });
 });
 
-//`carFactory(object)` is a function that takes an object as an argument. The object should include a make, model, year of a car, and number of doors. The function should take the object, create a class with the same properties, and compare it to other classes to determine if the vehicle is a motorcycle (0 doors), coupe (2 doors), or a sedan (4 doors). The function should return the type of vehicle.
-describe("carFactory", function () {
-  //carFactory is a function
-  it("is a function", function () {
-    expect(code.carFactory).to.be.a("function");
-  });
-
-  //carFactory returns a string
-  it("returns a string", function () {
-    const result = code.carFactory({
-      make: "Honda",
-      model: "Civic",
-      year: 2017,
-      doors: 4,
-    });
-    expect(result).to.be.a("string");
-  });
-
-  //carFactory returns a string that is either "motorcycle", "coupe", or "sedan"
-  it("returns a string that is either motorcycle, coupe, or sedan", function () {
-    const result = code.carFactory({
-      make: "Honda",
-      model: "Civic",
-      year: 2017,
-      doors: 4,
-    });
-    expect(result).to.be.a("string");
-    expect(result).to.equal("sedan");
-  });
-});
-
-//`fruitBasket(array)` is a function that takes an array of strings as an argument.
-// The function should take each string and create a class with the name of the fruit as well as the weight.
-// The weight should be randomly generated.
-// Each fruit should have a prototype like `eat()` that returns a string that says "You ate a [fruit]!"
-// and `throwAway()` that returns a string that says "You threw away a [fruit]!" when called.
 describe("fruitBasket", function () {
   //fruitBasket is a function
   it("is a function", function () {

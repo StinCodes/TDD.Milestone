@@ -43,10 +43,10 @@ dvdCollection(
 
 ```js
 studentBody([
-  { name: "John", age: 15, grade: 10 },
-  { name: "Jane", age: 16, grade: 11 },
-  { name: "Jack", age: 17, grade: 12 },
-]); // => { total: 3, age: 16, grade: 11 }
+  { name: "Stella", age: 25, grade: 10 },
+  { name: "Mohammed", age: 31, grade: 11 },
+  { name: "Brian", age: 18, grade: 19 },
+]); // => { total: 3, age: 25, grade: 14 }
 ```
 
 ### TDD 4: fruitBasket
