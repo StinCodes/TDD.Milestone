@@ -114,20 +114,48 @@ describe("fruitBasket", function () {
   });
 });
 
-//coinMachine() is a function that takes a number as an argument and returns an object with the number of quarters, dimes, nickels, and pennies that make up the number.
+describe("twice", function () {
+  const randomNumber = Math.floor(Math.random() * 100);
+  const testCase = () => randomNumber;
+
+  it("is a function that returns a function", function () {
+    expect(code.twice).to.be.a("function");
+    const result = code.twice(testCase);
+    expect(result).to.be.a("function");
+  });
+
+  it("can be called twice", function () {
+    let total = 0;
+    const result = code.twice(testCase);
+    total += result();
+    total += result();
+    expect(total).to.equal(randomNumber * 2);
+  });
+
+  it("returns 0 if called more than twice", function () {
+    let total = 0;
+    const result = code.twice(testCase);
+    total += result();
+    total += result();
+    total += result();
+    total += result();
+    const fifthCall = result();
+
+    expect(total).to.equal(randomNumber * 2);
+    expect(fifthCall).to.equal(0);
+  });
+});
+
 describe("coinMachine", function () {
-  //coinMachine is a function
   it("is a function", function () {
     expect(code.coinMachine).to.be.a("function");
   });
 
-  //coinMachine returns an object
   it("returns an object", function () {
     const result = code.coinMachine(123);
     expect(result).to.be.an("object");
   });
 
-  //coinMachine returns an object with the correct number of quarters, dimes, nickels, and pennies
   it("returns an object with the correct number of quarters, dimes, nickels, and pennies", function () {
     const result = code.coinMachine(123);
     expect(result).to.be.an("object");
