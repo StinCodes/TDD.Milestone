@@ -7,32 +7,72 @@ describe("higherOrLower", function () {
   });
 
   it("returns a string", function () {
-    const result = code.higherOrLower("higher", "lower", "equal");
+    const result = code.higherOrLower(10, 5);
     expect(result).to.be.a("string");
   });
 
-  //test if value is great than result return higher
-  it("returns higher if value is greater than result", function () {
+  it("returns higher if value1 is greater than value2", function () {
     const result = code.higherOrLower(10, 5);
     expect(result).to.equal("higher");
   });
 
-  //test if value is less than result return lower
-  it("returns lower if value is less than result", function () {
+  it("returns lower if value1 is less than value2", function () {
     const result = code.higherOrLower(5, 10);
     expect(result).to.equal("lower");
   });
 
-  //test if value is equal to result return equal
-  it("returns equal if value is equal to result", function () {
+  it("returns equal if value1 is equal to value2", function () {
     const result = code.higherOrLower(10, 10);
     expect(result).to.equal("equal");
   });
 
-  //test if value is not a number return error
-  it("returns error if value is not a number", function () {
-    const result = code.higherOrLower("10", 10);
-    expect(result).to.equal("error");
+  it("returns error if value1 or value2 is not a number", function () {
+    const value1Error = code.higherOrLower("10", 10);
+    expect(value1Error).to.equal("error");
+
+    const value2Error = code.higherOrLower(10, "10");
+    expect(value2Error).to.equal("error");
+  });
+});
+
+//given three arrays of strings to combine and return a single alphabetical array
+describe("dvdCollection", function () {
+  //dvds is a function
+  it("is a function", function () {
+    expect(code.dvdCollection).to.be.a("function");
+  });
+
+  //dvds returns an array
+  it("returns an array", function () {
+    const result = code.dvdCollection(
+      ["a", "b", "c"],
+      ["d", "e", "f"],
+      ["g", "h", "i"]
+    );
+    expect(result).to.be.an("array");
+  });
+
+  //dvds returns an array of strings
+  it("returns an array of strings", function () {
+    const result = code.dvdCollection(
+      ["a", "b", "c"],
+      ["d", "e", "f"],
+      ["g", "h", "i"]
+    );
+    expect(result).to.be.an("array");
+    expect(result[0]).to.be.a("string");
+  });
+
+  //dvds returns an array of strings in alphabetical order
+  it("returns an array of strings in alphabetical order", function () {
+    const result = code.dvdCollection(
+      ["c", "b", "a"],
+      ["e", "d", "f"],
+      ["h", "i", "g"]
+    );
+    expect(result).to.be.an("array");
+    expect(result[0]).to.be.a("string");
+    expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
   });
 });
 
@@ -138,46 +178,7 @@ describe("fruitBasket", function () {
   });
 });
 
-//given three arrays of strings to combine and return a single alphabetical array
-describe("dvdCollection", function () {
-  //dvds is a function
-  it("is a function", function () {
-    expect(code.dvdCollection).to.be.a("function");
-  });
 
-  //dvds returns an array
-  it("returns an array", function () {
-    const result = code.dvdCollection(
-      ["a", "b", "c"],
-      ["d", "e", "f"],
-      ["g", "h", "i"]
-    );
-    expect(result).to.be.an("array");
-  });
-
-  //dvds returns an array of strings
-  it("returns an array of strings", function () {
-    const result = code.dvdCollection(
-      ["a", "b", "c"],
-      ["d", "e", "f"],
-      ["g", "h", "i"]
-    );
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.a("string");
-  });
-
-  //dvds returns an array of strings in alphabetical order
-  it("returns an array of strings in alphabetical order", function () {
-    const result = code.dvdCollection(
-      ["c", "b", "a"],
-      ["e", "d", "f"],
-      ["h", "i", "g"]
-    );
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.a("string");
-    expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
-  });
-});
 
 //coinMachine() is a function that takes a number as an argument and returns an object with the number of quarters, dimes, nickels, and pennies that make up the number.
 describe("coinMachine", function () {
