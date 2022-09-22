@@ -2,12 +2,9 @@ const { expect } = require("chai");
 const code = require("./script.js");
 
 describe("higherOrLower", function () {
-  it("is a function", function () {
+  it("is a function that returns a string", function () {
     expect(code.higherOrLower).to.be.a("function");
-  });
-
-  it("returns a string", function () {
-    const result = code.higherOrLower(10, 5);
+    const result = code.higherOrLower(10, 10);
     expect(result).to.be.a("string");
   });
 
@@ -35,43 +32,24 @@ describe("higherOrLower", function () {
   });
 });
 
-//given three arrays of strings to combine and return a single alphabetical array
 describe("dvdCollection", function () {
-  //dvds is a function
-  it("is a function", function () {
+  const testCase = [
+    ["c", "b", "a"],
+    ["e", "d", "f"],
+    ["h", "i", "g"],
+  ];
+
+  it("is a function that returns an array of strings", function () {
     expect(code.dvdCollection).to.be.a("function");
+    const result = code.dvdCollection(...testCase);
+    expect(result).to.be.an("array");
+    for (const item of result) {
+      expect(item.to.be.a("string"));
+    }
   });
 
-  //dvds returns an array
-  it("returns an array", function () {
-    const result = code.dvdCollection(
-      ["a", "b", "c"],
-      ["d", "e", "f"],
-      ["g", "h", "i"]
-    );
-    expect(result).to.be.an("array");
-  });
-
-  //dvds returns an array of strings
-  it("returns an array of strings", function () {
-    const result = code.dvdCollection(
-      ["a", "b", "c"],
-      ["d", "e", "f"],
-      ["g", "h", "i"]
-    );
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.a("string");
-  });
-
-  //dvds returns an array of strings in alphabetical order
-  it("returns an array of strings in alphabetical order", function () {
-    const result = code.dvdCollection(
-      ["c", "b", "a"],
-      ["e", "d", "f"],
-      ["h", "i", "g"]
-    );
-    expect(result).to.be.an("array");
-    expect(result[0]).to.be.a("string");
+  it("returns a single array of strings in alphabetical order", function () {
+    const result = code.dvdCollection(...testCase);
     expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
   });
 });
@@ -177,8 +155,6 @@ describe("fruitBasket", function () {
     expect(result[0].throwAway()).to.be.a("string");
   });
 });
-
-
 
 //coinMachine() is a function that takes a number as an argument and returns an object with the number of quarters, dimes, nickels, and pennies that make up the number.
 describe("coinMachine", function () {
