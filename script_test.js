@@ -61,11 +61,8 @@ describe("studentBody", function () {
     { name: "Brian", age: 19, grade: 18 },
   ];
 
-  it("is a function", function () {
+  it("is a function that returns an object", function () {
     expect(code.studentBody).to.be.a("function");
-  });
-
-  it("returns an object", function () {
     const result = code.studentBody(testStudents);
     expect(result).to.be.an("object");
   });
@@ -81,8 +78,9 @@ describe("studentBody", function () {
 });
 
 describe("fruitBasket", function () {
-  //fruitBasket is a function
-  it("is a function", function () {
+  const testCase = ["apple", "banana", "orange", "kiwi"];
+
+  it("is a function that returns an array", function () {
     expect(code.fruitBasket).to.be.a("function");
   });
 
