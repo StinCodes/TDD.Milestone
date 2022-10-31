@@ -13,7 +13,7 @@
 
 ### TDD 1: higherOrLower
 
-`higherOrLower(value1: number, value2: number)` takes two parameters, `value1` and `value2`, and returns a string indicating whether `value1` is `"higher"`, `"lower"`, or `"equal"` to `value2`.
+`higherOrLower(value1: number, value2: number)` returns a string indicating whether `value1` is `"higher"`, `"lower"`, or `"equal"` to `value2`.
 
 If any of the inputs is not a number, then `"error"` should be returned.
 
@@ -39,7 +39,7 @@ dvdCollection(
 
 ### TDD 3: studentBody
 
-`studentBody(students: Object[])` is a function that takes an array of objects as an argument. Each object contains the name, age, and grade of a student. The function should return an object that contains the total number of students in the array, the average age of all students, and the average grade of all students.
+`studentBody(students: {name: string, age: number, grade: number}[])` is a function that takes an array of objects as an argument. Each object contains the name, age, and grade of a student. The function should return an object that contains the total number of students in the array, the average age of all students, and the average grade of all students.
 
 ```js
 studentBody([
@@ -55,8 +55,8 @@ studentBody([
 
 - `name: string`: the name of the fruit
 - `weight: number`: the weight of the fruit (random number between 1 and 10)
-- `eat: () -> string`: returns `"You ate a [fruit name]!"` when called
-- `throwAway: () -> string`: returns `"You threw away a [fruit name]!"` when called
+- `eat: () => string`: a function that returns `"You ate a [fruit name]!"` when called
+- `throwAway: () => string`: a function that returns `"You threw away a [fruit name]!"` when called
 
 ```js
 const fruits = fruitBasket(["pear", "apple", "banana"]); /* => [
