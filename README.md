@@ -83,16 +83,30 @@ const fruits = fruitBasket(["pear", "apple", "banana"]); /* => [
 fruits[0].eat(); // => "You ate a pear!"
 ```
 
-### TDD 5: twice
+### TDD 5: getBooksByLanguage
 
-`twice(fn: () => number)` returns a function that can only be invoked two times. Afterward, it will always return 0.
+`getBooksByLanguage(books: {title: string, language: string}[])` returns an object where each key is a language, and its value is an array of all the books written in that language.
+
+**You will only get credit if you use `reduce`!**
 
 ```js
-const randomTwice = twice(() => Math.random());
-randomTwice(); // => 0.583144377404559
-randomTwice(); // => 0.423114593732790
-randomTwice(); // => 0
-randomTwice(); // => 0
+const books = [
+  { title: "金雲翹傳", language: "zh" },
+  { title: "Kongens Fald", language: "da" },
+  { title: "肉蒲團", language: "zh" },
+  { title: "Seitsemän veljestä: Kertomus", language: "fi" },
+  { title: "The Gold Horns", language: "da" },
+  { title: "Kalevala", language: "fi" },
+  { title: "Työmiehen vaimo", language: "fi" },
+  { title: "封神演義", language: "zh" },
+  { title: "Samlede Værker, Andet Bind", language: "da" },
+];
+
+getBooksByLanguage(books); /* => {
+  zh: [ '金雲翹傳', '封神演義', '肉蒲團' ],
+  fi: [ 'Kalevala', 'Seitsemän veljestä: Kertomus', 'Työmiehen vaimo' ],
+  da: [ 'Samlede Værker, Andet Bind', 'Kongens Fald', 'The Gold Horns' ]
+}*/
 ```
 
 ### OPTIONAL: coinMachine
