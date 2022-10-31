@@ -135,7 +135,7 @@ describe("getBooksByLanguage", function () {
 
   it("returns an object where each value is an array of strings", function () {
     const result = code.getBooksByLanguage(test);
-    for (const key of result) {
+    for (const key in result) {
       expect(result[key]).to.be.an("array");
       for (const elem of result[key]) {
         expect(elem).to.be.a("string");
@@ -145,11 +145,15 @@ describe("getBooksByLanguage", function () {
 
   it("returns an object with the correct languages and titles", function () {
     const result = code.getBooksByLanguage(test);
-    expect(result).to.eql({
+    const expected = {
       zh: ["金雲翹傳", "封神演義", "肉蒲團"],
       fi: ["Kalevala", "Seitsemän veljestä: Kertomus", "Työmiehen vaimo"],
       da: ["Samlede Værker, Andet Bind", "Kongens Fald", "The Gold Horns"],
-    });
+    };
+    expect(Object.keys(result)).to.have.members(Object.keys(expected));
+    for (const l in result) {
+      expect(result[l]).to.have.members(expected[l]);
+    }
   });
 
   it("returns an empty object when books is empty", function () {
