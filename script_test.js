@@ -33,7 +33,7 @@ describe("higherOrLower", function () {
 });
 
 describe("dvdCollection", function () {
-  const testCase = [
+  const test = [
     ["c", "b", "a"],
     ["e", "d", "f"],
     ["h", "i", "g"],
@@ -41,7 +41,7 @@ describe("dvdCollection", function () {
 
   it("is a function that returns an array of strings", function () {
     expect(code.dvdCollection).to.be.a("function");
-    const result = code.dvdCollection(...testCase);
+    const result = code.dvdCollection(...test);
     expect(result).to.be.an("array");
     for (const item of result) {
       expect(item).to.be.a("string");
@@ -49,13 +49,13 @@ describe("dvdCollection", function () {
   });
 
   it("returns a single array of strings in alphabetical order", function () {
-    const result = code.dvdCollection(...testCase);
+    const result = code.dvdCollection(...test);
     expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
   });
 });
 
 describe("studentBody", function () {
-  const testStudents = [
+  const test = [
     { name: "Stella", age: 25, grade: 11 },
     { name: "Mohammed", age: 31, grade: 13 },
     { name: "Brian", age: 19, grade: 18 },
@@ -63,12 +63,12 @@ describe("studentBody", function () {
 
   it("is a function that returns an object", function () {
     expect(code.studentBody).to.be.a("function");
-    const result = code.studentBody(testStudents);
+    const result = code.studentBody(test);
     expect(result).to.be.an("object");
   });
 
   it("returns an object containing the correct values", function () {
-    const result = code.studentBody(testStudents);
+    const result = code.studentBody(test);
     expect(result).to.deep.equal({
       total: 3,
       age: (25 + 31 + 19) / 3,
@@ -78,11 +78,11 @@ describe("studentBody", function () {
 });
 
 describe("fruitBasket", function () {
-  const testCase = ["apple", "banana", "orange", "kiwi"];
+  const test = ["apple", "banana", "orange", "kiwi"];
 
   it("is a function that returns an array of objects", function () {
     expect(code.fruitBasket).to.be.a("function");
-    const result = code.fruitBasket(testCase);
+    const result = code.fruitBasket(test);
     expect(result).to.be.an("array");
 
     for (const fruit of result) {
@@ -91,7 +91,7 @@ describe("fruitBasket", function () {
   });
 
   it("returns an array of objects with the correct types of properties and methods", function () {
-    const result = code.fruitBasket(testCase);
+    const result = code.fruitBasket(test);
     expect(result).to.be.an("array");
     for (const fruit of result) {
       expect(fruit.name).to.be.a("string");
@@ -104,9 +104,9 @@ describe("fruitBasket", function () {
   });
 
   it("returns an array of objects with the correct properties and methods", function () {
-    const result = code.fruitBasket(testCase);
+    const result = code.fruitBasket(test);
     result.forEach((fruit, i) => {
-      expect(fruit.name).to.equal(testCase[i]);
+      expect(fruit.name).to.equal(test[i]);
       expect(fruit.weight).to.be.within(1, 10);
       expect(fruit.eat()).to.equal(`You ate a ${fruit.name}!`);
       expect(fruit.throwAway()).to.equal(`You threw away a ${fruit.name}!`);
@@ -114,35 +114,47 @@ describe("fruitBasket", function () {
   });
 });
 
-describe("twice", function () {
-  const randomNumber = Math.floor(Math.random() * 100);
-  const testCase = () => randomNumber;
+describe("getBooksByLanguage", function () {
+  const test = [
+    { title: "金雲翹傳", language: "zh" },
+    { title: "Kongens Fald", language: "da" },
+    { title: "肉蒲團", language: "zh" },
+    { title: "Seitsemän veljestä: Kertomus", language: "fi" },
+    { title: "The Gold Horns", language: "da" },
+    { title: "Kalevala", language: "fi" },
+    { title: "Työmiehen vaimo", language: "fi" },
+    { title: "封神演義", language: "zh" },
+    { title: "Samlede Værker, Andet Bind", language: "da" },
+  ];
 
-  it("is a function that returns a function", function () {
-    expect(code.twice).to.be.a("function");
-    const result = code.twice(testCase);
-    expect(result).to.be.a("function");
+  it("is a function that returns an object", function () {
+    expect(code.getBooksByLanguage).to.be.a("function");
+    const result = code.getBooksByLanguage(test);
+    expect(result).to.be.an("object");
   });
 
-  it("can be called twice", function () {
-    let total = 0;
-    const result = code.twice(testCase);
-    total += result();
-    total += result();
-    expect(total).to.equal(randomNumber * 2);
+  it("returns an object where each value is an array of strings", function () {
+    const result = code.getBooksByLanguage(test);
+    for (const key of result) {
+      expect(result[key]).to.be.an("array");
+      for (const elem of result[key]) {
+        expect(elem).to.be.a("string");
+      }
+    }
   });
 
-  it("returns 0 if called more than twice", function () {
-    let total = 0;
-    const result = code.twice(testCase);
-    total += result();
-    total += result();
-    total += result();
-    total += result();
-    const fifthCall = result();
+  it("returns an object with the correct languages and titles", function () {
+    const result = code.getBooksByLanguage(test);
+    expect(result).to.eql({
+      zh: ["金雲翹傳", "封神演義", "肉蒲團"],
+      fi: ["Kalevala", "Seitsemän veljestä: Kertomus", "Työmiehen vaimo"],
+      da: ["Samlede Værker, Andet Bind", "Kongens Fald", "The Gold Horns"],
+    });
+  });
 
-    expect(total).to.equal(randomNumber * 2);
-    expect(fifthCall).to.equal(0);
+  it("returns an empty object when books is empty", function () {
+    const result = code.getBooksByLanguage([]);
+    expect(result).to.eql({});
   });
 });
 

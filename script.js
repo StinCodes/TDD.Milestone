@@ -10,6 +10,6 @@ module.exports = {
   // dvdCollection,
   // studentBody,
   // fruitBasket,
-  // twice,
+  // getBooksByLanguage,
   // coinMachine,
 };
