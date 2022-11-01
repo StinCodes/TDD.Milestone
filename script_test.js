@@ -27,7 +27,7 @@ describe("higherOrLower", function () {
     const value1Error = code.higherOrLower("10", 10);
     expect(value1Error).to.equal("error");
 
-    const value2Error = code.higherOrLower(10, "10");
+    const value2Error = code.higherOrLower(8, "10");
     expect(value2Error).to.equal("error");
   });
 });
