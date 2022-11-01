@@ -43,9 +43,9 @@ dvdCollection(
 
 ```js
 studentBody([
-  { name: "Stella", age: 25, grade: 10 },
-  { name: "Mohammed", age: 31, grade: 11 },
-  { name: "Brian", age: 18, grade: 19 },
+  { name: "Stella", age: 25, grade: 11 },
+  { name: "Mohammed", age: 31, grade: 13 },
+  { name: "Brian", age: 19, grade: 18 },
 ]); // => { total: 3, age: 25, grade: 14 }
 ```
 
