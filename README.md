@@ -1,4 +1,4 @@
-# TDD: JavaScript
+# TDD: Milestone
 
 ## Getting Started
 
