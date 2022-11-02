@@ -105,6 +105,7 @@ describe("fruitBasket", function () {
 
   it("returns an array of objects with the correct properties and methods", function () {
     const result = code.fruitBasket(test);
+    expect(result).to.have.length(test.length);
     result.forEach((fruit, i) => {
       expect(fruit.name).to.equal(test[i]);
       expect(fruit.weight).to.be.within(1, 10);
