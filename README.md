@@ -15,13 +15,12 @@
 
 `higherOrLower(value1: number, value2: number)` returns a string indicating whether `value1` is `"higher"`, `"lower"`, or `"equal"` to `value2`.
 
-If any of the inputs is not a number, then `"error"` should be returned.
+You can assume that the arguments will be numbers.
 
 ```js
 higherOrLower(5, 6); // => "lower"
-higherOrLower(6, 5); // => "higher"
+higherOrLower(6.2, 5); // => "higher"
 higherOrLower(6, 6); // => "equal"
-higherOrLower("6", 6); // => "error"
 ```
 
 ### TDD 2: dvdCollection
@@ -57,6 +56,8 @@ studentBody([
 - `weight: number`: the weight of the fruit (random number between 1 and 10)
 - `eat: () => string`: a function that returns `"You ate a [fruit name]!"` when called
 - `throwAway: () => string`: a function that returns `"You threw away a [fruit name]!"` when called
+
+The returned objects can be regular objects or instances of a `Fruit` class that you define.
 
 ```js
 const fruits = fruitBasket(["pear", "apple", "banana"]); /* => [

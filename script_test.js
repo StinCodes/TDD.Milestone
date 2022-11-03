@@ -14,43 +14,39 @@ describe("higherOrLower", function () {
   });
 
   it("returns lower if value1 is less than value2", function () {
-    const result = code.higherOrLower(5, 10);
+    const result = code.higherOrLower(9.9, 10);
     expect(result).to.equal("lower");
   });
 
   it("returns equal if value1 is equal to value2", function () {
-    const result = code.higherOrLower(5.2, 5.2);
+    const result = code.higherOrLower(15.2, 15.2);
     expect(result).to.equal("equal");
-  });
-
-  it("returns error if value1 or value2 is not a number", function () {
-    const value1Error = code.higherOrLower("10", 10);
-    expect(value1Error).to.equal("error");
-
-    const value2Error = code.higherOrLower(8.3, "10");
-    expect(value2Error).to.equal("error");
   });
 });
 
 describe("dvdCollection", function () {
   const test = [
-    ["c", "b", "a"],
-    ["e", "d", "f"],
-    ["h", "i", "g"],
+    ["c", "b", "a", "j"],
+    ["e", "d", "k", "f", "l"],
+    ["g", "i", "h"],
   ];
 
   it("is a function that returns an array of strings", function () {
     expect(code.dvdCollection).to.be.a("function");
     const result = code.dvdCollection(...test);
     expect(result).to.be.an("array");
-    for (const item of result) {
-      expect(item).to.be.a("string");
-    }
+    result.forEach((item) => expect(item).to.be.a("string"));
   });
 
-  it("returns a single array of strings in alphabetical order", function () {
+  it("returns an array with the correct length", function () {
     const result = code.dvdCollection(...test);
-    expect(result).to.deep.equal(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
+    const totalLength = test.reduce((sum, movies) => sum + movies.length, 0);
+    expect(result).to.have.lengthOf(totalLength);
+  });
+
+  it("returns the correct strings in alphabetical order", function () {
+    const result = code.dvdCollection(...test);
+    expect(result).to.eql("abcdefghijkl".split(""));
   });
 });
 
@@ -67,9 +63,14 @@ describe("studentBody", function () {
     expect(result).to.be.an("object");
   });
 
+  it("returns an object with the correct keys", function () {
+    const result = code.studentBody(test);
+    expect(result).to.have.all.keys(["total", "age", "grade"]);
+  });
+
   it("returns an object containing the correct values", function () {
     const result = code.studentBody(test);
-    expect(result).to.deep.equal({
+    expect(result).to.eql({
       total: 3,
       age: (25 + 31 + 19) / 3,
       grade: (11 + 13 + 18) / 3,
@@ -78,39 +79,30 @@ describe("studentBody", function () {
 });
 
 describe("fruitBasket", function () {
-  const test = ["apple", "banana", "orange", "kiwi"];
+  const test = ["dragonfruit", "mango", "persimmon", "kiwi"];
 
   it("is a function that returns an array of objects", function () {
     expect(code.fruitBasket).to.be.a("function");
+
     const result = code.fruitBasket(test);
     expect(result).to.be.an("array");
-
-    for (const fruit of result) {
-      expect(fruit).to.be.an("object");
-    }
+    expect(result).not.to.be.empty;
+    result.forEach((fruit) => expect(fruit).to.be.an("object"));
   });
 
-  it("returns an array of objects with the correct types of properties and methods", function () {
+  it("returns an array with the same length as the input array", function () {
     const result = code.fruitBasket(test);
-    expect(result).to.be.an("array");
-    for (const fruit of result) {
-      expect(fruit.name).to.be.a("string");
-      expect(fruit.weight).to.be.a("number");
-      expect(fruit.eat).to.be.a("function");
-      expect(fruit.eat()).to.be.a("string");
-      expect(fruit.throwAway).to.be.a("function");
-      expect(fruit.throwAway()).to.be.a("string");
-    }
+    expect(result).to.have.lengthOf(test.length);
   });
 
   it("returns an array of objects with the correct properties and methods", function () {
     const result = code.fruitBasket(test);
-    expect(result).to.have.length(test.length);
-    result.forEach((fruit, i) => {
-      expect(fruit.name).to.equal(test[i]);
+    test.forEach((fruitName, i) => {
+      const fruit = result[i];
+      expect(fruit.name).to.equal(fruitName);
       expect(fruit.weight).to.be.within(1, 10);
-      expect(fruit.eat()).to.equal(`You ate a ${fruit.name}!`);
-      expect(fruit.throwAway()).to.equal(`You threw away a ${fruit.name}!`);
+      expect(fruit.eat()).to.equal(`You ate a ${fruitName}!`);
+      expect(fruit.throwAway()).to.equal(`You threw away a ${fruitName}!`);
     });
   });
 });
@@ -134,13 +126,17 @@ describe("getBooksByLanguage", function () {
     expect(result).to.be.an("object");
   });
 
+  it("returns an object with the correct keys", function () {
+    const result = code.getBooksByLanguage(test);
+    expect(result).to.have.all.keys(["zh", "fi", "da"]);
+  });
+
   it("returns an object where each value is an array of strings", function () {
     const result = code.getBooksByLanguage(test);
-    for (const key in result) {
-      expect(result[key]).to.be.an("array");
-      for (const elem of result[key]) {
-        expect(elem).to.be.a("string");
-      }
+    for (const language in result) {
+      const books = result[language];
+      expect(books).to.be.an("array");
+      books.forEach((book) => expect(book).to.be.a("string"));
     }
   });
 
@@ -151,15 +147,10 @@ describe("getBooksByLanguage", function () {
       fi: ["Kalevala", "Seitsemän veljestä: Kertomus", "Työmiehen vaimo"],
       da: ["Samlede Værker, Andet Bind", "Kongens Fald", "The Gold Horns"],
     };
-    expect(Object.keys(result)).to.have.members(Object.keys(expected));
-    for (const l in result) {
-      expect(result[l]).to.have.members(expected[l]);
-    }
-  });
 
-  it("returns an empty object when books is empty", function () {
-    const result = code.getBooksByLanguage([]);
-    expect(result).to.eql({});
+    for (const language in result) {
+      expect(result[language]).to.have.members(expected[language]);
+    }
   });
 });
 
