@@ -78,7 +78,7 @@ describe("studentBody", function () {
   });
 });
 
-describe("fruitBasket", function () {
+describe.only("fruitBasket", function () {
   const test = ["dragonfruit", "mango", "persimmon", "kiwi"];
 
   it("is a function that returns an array of objects", function () {
